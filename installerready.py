@@ -48,7 +48,7 @@ class InstallerReadyApp(tk.Tk):
         self.repo_entry.pack(padx=20, pady=10)
 
         tk.Button(self.tab_github, text="Select Download Folder", command=self.select_folder).pack(pady=5)
-        self.folder_label = tk.Label(self.tab_github, text=f"Install Path: {self.install_path}")
+        self.folder_label = tk.Label(self.tab_github, text=f"Download Path: {self.install_path}")
         self.folder_label.pack()
 
         # Progress bar
@@ -57,7 +57,7 @@ class InstallerReadyApp(tk.Tk):
         self.progress_label = tk.Label(self.tab_github, text="Ready")
         self.progress_label.pack()
 
-        tk.Button(self.tab_github, text="Install", command=self.start_install_from_url).pack(pady=10)
+        tk.Button(self.tab_github, text="Download", command=self.start_install_from_url).pack(pady=10)
 
     def create_myprojects_tab(self):
         tk.Label(self.tab_myprojects, text="Coltonsr77`s GitHub Projects", font=("Arial", 16, "bold")).pack(pady=10)
@@ -168,7 +168,7 @@ class InstallerReadyApp(tk.Tk):
             desc = project.get("description", "No description provided.")
             tk.Label(frame, text=name, font=("Arial", 14, "bold")).pack(anchor="w", padx=10, pady=2)
             tk.Label(frame, text=desc, wraplength=650, justify="left").pack(anchor="w", padx=10)
-            tk.Button(frame, text="Install", command=lambda n=name: self.start_install_project(n)).pack(pady=5)
+            tk.Button(frame, text="Download", command=lambda n=name: self.start_install_project(n)).pack(pady=5)
 
     def get_repo_name(self, repo_url):
         match = re.search(r"github\.com/[^/]+/([^/]+)", repo_url)
