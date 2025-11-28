@@ -33,8 +33,8 @@ class InstallerReadyApp(tk.Tk):
         self.tab_myprojects = ttk.Frame(notebook)
         self.tab_about = ttk.Frame(notebook)
 
-        notebook.add(self.tab_github, text="Install from GitHub")
-        notebook.add(self.tab_myprojects, text="My Projects")
+        notebook.add(self.tab_github, text="Download from GitHub")
+        notebook.add(self.tab_myprojects, text="Coltonsr77`s Projects")
         notebook.add(self.tab_about, text="About")
 
         self.create_github_tab()
@@ -42,12 +42,12 @@ class InstallerReadyApp(tk.Tk):
         self.create_about_tab()
 
     def create_github_tab(self):
-        tk.Label(self.tab_github, text="Install from GitHub URL", font=("Arial", 16, "bold")).pack(pady=10)
+        tk.Label(self.tab_github, text="Download from GitHub URL", font=("Arial", 16, "bold")).pack(pady=10)
         self.repo_entry = tk.Entry(self.tab_github, width=60)
         self.repo_entry.insert(0, "Enter GitHub repository URL...")
         self.repo_entry.pack(padx=20, pady=10)
 
-        tk.Button(self.tab_github, text="Select Install Folder", command=self.select_folder).pack(pady=5)
+        tk.Button(self.tab_github, text="Select Download Folder", command=self.select_folder).pack(pady=5)
         self.folder_label = tk.Label(self.tab_github, text=f"Install Path: {self.install_path}")
         self.folder_label.pack()
 
@@ -60,7 +60,7 @@ class InstallerReadyApp(tk.Tk):
         tk.Button(self.tab_github, text="Install", command=self.start_install_from_url).pack(pady=10)
 
     def create_myprojects_tab(self):
-        tk.Label(self.tab_myprojects, text="My GitHub Projects", font=("Arial", 16, "bold")).pack(pady=10)
+        tk.Label(self.tab_myprojects, text="Coltonsr77`s GitHub Projects", font=("Arial", 16, "bold")).pack(pady=10)
         self.canvas = tk.Canvas(self.tab_myprojects)
         self.scrollbar = ttk.Scrollbar(self.tab_myprojects, orient="vertical", command=self.canvas.yview)
         self.scrollable_frame = tk.Frame(self.canvas)
@@ -82,8 +82,8 @@ class InstallerReadyApp(tk.Tk):
         text = (
             f"InstallerReady v{VERSION}\n\n"
             "Created by Coltonsr77\n\n"
-            "Use this tool to install GitHub projects easily.\n"
-            "You can install any repository via URL or from my own projects list."
+            "Use this tool to download GitHub projects easily.\n"
+            "You can download any repository via URL or from Coltonsr77`s projects list."
         )
         tk.Label(self.tab_about, text=text, justify="left", wraplength=700).pack(padx=20, pady=20)
 
@@ -133,9 +133,9 @@ class InstallerReadyApp(tk.Tk):
                 zip_ref.extractall(self.install_path)
 
             self.update_progress(1.0, "Done!")
-            messagebox.showinfo("Installed", f"{repo_name} installed successfully!")
+            messagebox.showinfo("Downloaded", f"{repo_name} has downloaded successfully!")
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to install project:\n{e}")
+            messagebox.showerror("Error", f"Failed to download project:\n{e}")
             self.update_progress(0, "Error")
 
     def load_projects(self):
