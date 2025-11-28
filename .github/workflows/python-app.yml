@@ -1,36 +1,27 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+name: Build
 
-name: Python application
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+on: [push]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  Build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
 
     steps:
-    - uses: actions/checkout@v6
-    - name: Set up Python 3.10
+    - name: Obtain latest version of the repository
+      uses: actions/checkout@v6
+    - name: Set up Python 3
       uses: actions/setup-python@v6
       with:
-        python-version: "3.13"
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-         - name: Install pyinstaller
+        python-version: '3.13.x'
+    - name: Install requirements with PIP
+      run: pip install -r requirements.txt
+    - name: Install pyinstaller
       run: pip install git+https://github.com/pyinstaller/pyinstaller.git@develop
     - name: Build InstallerReady
-      run: pyinstaller installerready.spec
+      run: pyinstaller installeready.spec
     - name: Publish Build Artifacts
       uses: actions/upload-artifact@master
       with:
