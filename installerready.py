@@ -42,7 +42,7 @@ class InstallerReadyApp(tk.Tk):
         self.create_about_tab()
 
     def create_github_tab(self):
-        tk.Label(self.tab_github, text="Download from GitHub URL", font=("Arial", 16, "bold")).pack(pady=10)
+        tk.Label(self.tab_github, text="Download from GitHub", font=("Arial", 16, "bold")).pack(pady=10)
         self.repo_entry = tk.Entry(self.tab_github, width=60)
         self.repo_entry.insert(0, "Enter GitHub repository URL...")
         self.repo_entry.pack(padx=20, pady=10)
