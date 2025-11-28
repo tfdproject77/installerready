@@ -1,4 +1,0 @@
-pywin32
-pypiwin32
-requests
-kitecmd==0.8
