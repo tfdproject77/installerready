@@ -8,7 +8,7 @@ import io
 import re
 import subprocess
 
-VERSION = "0.4.2"
+VERSION = "0.4.2-Beta"
 OWNER = "coltonsr77"
 API_BASE = f"https://api.github.com/users/{OWNER}/repos"
 
@@ -35,7 +35,7 @@ class InstallerReadyApp(tk.Tk):
 
         notebook.add(self.tab_github, text="Download from GitHub")
         notebook.add(self.tab_myprojects, text="Coltonsr77`s Projects")
-        notebook.add(self.tab_about, text="About")
+        notebook.add(self.tab_about, text="About InstallerReady")
 
         self.create_github_tab()
         self.create_myprojects_tab()
