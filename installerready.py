@@ -8,7 +8,7 @@ import io
 import re
 import subprocess
 
-VERSION = "0.4.2"
+VERSION = "0.4.2-Beta"
 OWNER = "coltonsr77"
 API_BASE = f"https://api.github.com/users/{OWNER}/repos"
 
@@ -34,8 +34,8 @@ class InstallerReadyApp(tk.Tk):
         self.tab_about = ttk.Frame(notebook)
 
         notebook.add(self.tab_github, text="Download from GitHub")
-        notebook.add(self.tab_myprojects, text="Coltonsr77`s Projects")
-        notebook.add(self.tab_about, text="About")
+        notebook.add(self.tab_myprojects, text="coltonsr77`s Projects")
+        notebook.add(self.tab_about, text="About InstallerReady")
 
         self.create_github_tab()
         self.create_myprojects_tab()
@@ -60,7 +60,7 @@ class InstallerReadyApp(tk.Tk):
         tk.Button(self.tab_github, text="Download", command=self.start_install_from_url).pack(pady=10)
 
     def create_myprojects_tab(self):
-        tk.Label(self.tab_myprojects, text="Coltonsr77`s GitHub Projects", font=("Arial", 16, "bold")).pack(pady=10)
+        tk.Label(self.tab_myprojects, text="coltonsr77`s GitHub Projects", font=("Arial", 16, "bold")).pack(pady=10)
         self.canvas = tk.Canvas(self.tab_myprojects)
         self.scrollbar = ttk.Scrollbar(self.tab_myprojects, orient="vertical", command=self.canvas.yview)
         self.scrollable_frame = tk.Frame(self.canvas)
