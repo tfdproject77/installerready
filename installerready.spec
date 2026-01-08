@@ -33,7 +33,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='InstallerReady',
+    name='InstallerReady0.4.2-Beta',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
